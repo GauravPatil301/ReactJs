@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import './index.css';
 
 ////    Type 1
 // function Greeting() {
@@ -90,19 +91,35 @@ import ReactDOM from "react-dom/client";
 //     return <p>This is my message.</p>
 // }
 
-const BookList = () =>{
-    return (<section></section>)
+// root.render(<Greeting />)
+
+
+function BookList(){
+    return (<section className="booklist">
+        <Book/>
+        <Book/>
+        <Book/>
+        <Book/>
+    </section>)
 }
 
 const Book = () => {
-    return (<article>
-
+    return (<article className="book">
+        <Image/>
+        <Title/>
+        <Author/>
     </article>)
 }
 
+const Image = () => (<img src= './images/book-1.jpg'alt='Interesting Facts For Curious Minds'/>);
+const Title = () => {
+    return <h2>Interesting Facts For Curious Minds</h2>;
+  };
+const Author = () => <h4>Jordan Moore </h4>;
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<Greeting />)
+root.render(<BookList/>)
 
-export default Greeting;
+// export default Greeting; 
 
