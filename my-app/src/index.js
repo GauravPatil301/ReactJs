@@ -93,29 +93,38 @@ import './index.css';
 
 // root.render(<Greeting />)
 
+const firstBook = {
+    author: 'Jordan Moore',
+    title: 'Interesting Facts For Curious Minds',
+    img: './images/book-1.jpg',
+}
+
+const secondBook = {
+    author: 'Morgan Housel',
+    title: 'The Psychology of Money',
+    img: 'https://m.media-amazon.com/images/I/417KWv-EtEL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+}
+
 
 function BookList(){
     return (<section className="booklist">
-        <Book/>
-        <Book/>
-        <Book/>
-        <Book/>
-    </section>)
+        <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}/>
+        <Book author={secondBook.author} title={secondBook.title} img={secondBook.img}/>
+    </section>);
 }
 
-const Book = () => {
-    return (<article className="book">
-        <Image/>
-        <Title/>
-        <Author/>
-    </article>)
-}
+//2:23:22
 
-const Image = () => (<img src= './images/book-1.jpg'alt='Interesting Facts For Curious Minds'/>);
-const Title = () => {
-    return <h2>Interesting Facts For Curious Minds</h2>;
-  };
-const Author = () => <h4>Jordan Moore </h4>;
+const Book = (props) => {
+    console.log(props);
+    return (
+        <article className="book">
+        <img src= {props.img} alt={props.title}/>
+        <h2>{props.title}</h2>
+        <h4>{props.author}</h4>
+    </article>
+    );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
