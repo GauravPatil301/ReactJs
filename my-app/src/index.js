@@ -92,36 +92,55 @@ import './index.css';
 // }
 
 // root.render(<Greeting />)
-
-const firstBook = {
-    author: 'Jordan Moore',
-    title: 'Interesting Facts For Curious Minds',
-    img: './images/book-1.jpg',
-}
-
-const secondBook = {
-    author: 'Morgan Housel',
-    title: 'The Psychology of Money',
-    img: 'https://m.media-amazon.com/images/I/417KWv-EtEL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
-}
+const books = [
+    {
+        author: 'Jordan Moore',
+        title: 'Interesting Facts For Curious Minds',
+        img: './images/book-1.jpg',
+        id: 1,
+    },
+    {
+        author: 'Morgan Housel',
+        title: 'The Psychology of Money',
+        img: 'https://m.media-amazon.com/images/I/417KWv-EtEL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+        id: 2,
+    },
+]
 
 
 function BookList(){
-    return (<section className="booklist">
-        <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}/>
-        <Book author={secondBook.author} title={secondBook.title} img={secondBook.img}/>
-    </section>);
+    return (
+    <section className="booklist">
+        <EventExamples/>
+        {books.map((book) => {
+            return (
+                <Book {...book} key={book.id} />
+            )
+        })}
+    </section>
+    );
 }
 
-//2:23:22
+const EventExamples = () => {
+    return (
+        <section>
+            <form>
+                <h2>Typical Form</h2>
+                <input type="text" name="example" style={{margin:'1rem 0'}}/>
+            </form>
+        </section>
+    )
+}
 
 const Book = (props) => {
+    const {img, title, author} = props;
     console.log(props);
+    // const  = props
     return (
         <article className="book">
-        <img src= {props.img} alt={props.title}/>
-        <h2>{props.title}</h2>
-        <h4>{props.author}</h4>
+        <img src= {img} alt={title}/>
+        <h2>{title}</h2>
+        <h4>{author}</h4>
     </article>
     );
 }
