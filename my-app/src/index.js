@@ -107,39 +107,32 @@ const books = [
     },
 ]
 
-
 function BookList(){
+    const someValue = 'shakeAndBake'
+    const displayValue = () => {
+        console.log(someValue);
+    }
     return (
     <section className="booklist">
-        <EventExamples/>
         {books.map((book) => {
             return (
-                <Book {...book} key={book.id} />
+                <Book {...book} key={book.id} displayValue={displayValue} />
             )
         })}
     </section>
     );
 }
 
-const EventExamples = () => {
-    return (
-        <section>
-            <form>
-                <h2>Typical Form</h2>
-                <input type="text" name="example" style={{margin:'1rem 0'}}/>
-            </form>
-        </section>
-    )
-}
-
 const Book = (props) => {
-    const {img, title, author} = props;
-    console.log(props);
+    const {img, title, author, displayValue} = props;
+    // console.log(props);
     // const  = props
+    
     return (
         <article className="book">
         <img src= {img} alt={title}/>
         <h2>{title}</h2>
+        <button onClick={displayValue}>display title</button>
         <h4>{author}</h4>
     </article>
     );
