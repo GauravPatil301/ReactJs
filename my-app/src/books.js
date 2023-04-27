@@ -1,15 +1,25 @@
+import img1 from './images/book-1.jpg'
+import img2 from './images/book-2.jpg'
+import img3 from './images/book-3.jpg'
+
 export const books = [
     {
         author: 'Jordan Moore',
         title: 'Interesting Facts For Curious Minds',
-        img: './images/book-1.jpg',
+        img: img1,
         id: 1,
     },
     {
-        author: 'Morgan Housel',
-        title: 'The Psychology of Money',
-        img: 'https://m.media-amazon.com/images/I/417KWv-EtEL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+        author: 'James Clear',
+        title: 'Rich dad poor dad',
+        img: img2,
         id: 2,
+    },
+    {
+        author: 'Jimmy Niro',
+        title: 'Airbnb Business',
+        img: img3,
+        id: 3,
     },
 ]
 
