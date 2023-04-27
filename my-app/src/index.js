@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import './index.css';
+import { books } from './books';
+import Book from './book';
 
 ////    Type 1
 // function Greeting() {
@@ -92,51 +94,38 @@ import './index.css';
 // }
 
 // root.render(<Greeting />)
-const books = [
-    {
-        author: 'Jordan Moore',
-        title: 'Interesting Facts For Curious Minds',
-        img: './images/book-1.jpg',
-        id: 1,
-    },
-    {
-        author: 'Morgan Housel',
-        title: 'The Psychology of Money',
-        img: 'https://m.media-amazon.com/images/I/417KWv-EtEL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
-        id: 2,
-    },
-]
+
 
 function BookList(){
-    const someValue = 'shakeAndBake'
-    const displayValue = () => {
-        console.log(someValue);
-    }
     return (
     <section className="booklist">
         {books.map((book) => {
             return (
-                <Book {...book} key={book.id} displayValue={displayValue} />
+                <Book {...book} key={book.id} />
             )
         })}
     </section>
     );
 }
 
-const Book = (props) => {
-    const {img, title, author, displayValue} = props;
-    // console.log(props);
-    // const  = props
+
+
+// const Book = (props) => {
+//     const {img, title, author} = props;
+//     console.log(props);
+//     // const  = props
     
-    return (
-        <article className="book">
-        <img src= {img} alt={title}/>
-        <h2>{title}</h2>
-        <button onClick={displayValue}>display title</button>
-        <h4>{author}</h4>
-    </article>
-    );
-}
+//     return (
+//         <article className="book">
+//         <img src= {img} alt={title}/>
+//         <h2>{title}</h2>
+//         <button>display title</button>
+//         <h4>{author}</h4>
+//     </article>
+//     );
+// }
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
